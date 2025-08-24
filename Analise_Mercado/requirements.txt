@@ -1,6 +1,6 @@
 crewai  
 crewai_tools
-langchain_community
+langchain_community 
 ipykernel
 python-dotenv
 jupyter

@@ -5,12 +5,20 @@
 #
 #     Pesquisador de Mercado: Coleta dados sobre o mercado, concorrentes e tendências.
 #     Analista de tendências: Interpreta os dados coletados e gera insights acionáveis
-#.    Redator do relatório: Compila os insights em um relatório claro e conciso.
+#     Redator do relatório: Compila os insights em um relatório claro e conciso.
+
+# Exemplo de uso: 
+#      
+# analise_mercado_crew.kickoff(inputs={"sector": "Agentes de IA"})
+
 #######################
 
 import os
 from dotenv import load_dotenv, find_dotenv
 from crewai import Agent, Process, Crew, Task
+from IPython.display import Markdown, display
+import markdown
+import pdfkit
 
 load_dotenv(find_dotenv())
 
@@ -95,4 +103,15 @@ analise_mercado_crew = Crew(
 
 resultado = analise_mercado_crew.kickoff(inputs={"sector": "Agentes de IA"})
 
-print(resultado)
+#print(resultado)
+display(Markdown(resultado.raw))
+
+with open("analise_mercado.md", "w", encoding="utf-8") as f:
+    f.write(str(resultado))
+
+html_content = markdown.markdown(str(resultado))
+with open("analise_mercado.html", "w", encoding="utf-8") as f:
+    f.write(html_content)   
+    
+#pdfkit.from_string(resultado, 'analise_mercado.pdf')
+
