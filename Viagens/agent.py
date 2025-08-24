@@ -1,3 +1,16 @@
+#######################
+# Agente para planejar uma viagem
+# Autor: Mendo Leonel
+# Data: 2024-06-26
+#
+# Descrição: Este script cria dois agentes usando a biblioteca CrewAI.
+# O primeiro agente é um planejador de viagens que cria um roteiro detalhado
+# para uma viagem à Grécia. O segundo agente é um orçamentista que calcula
+# o custo total estimado da viagem, incluindo transporte, hospedagem,
+# alimentação e atividades. Os agentes trabalham juntos em uma Crew para
+# completar as tarefas sequencialmente.
+#
+#######################
 import os
 from dotenv import load_dotenv
 from crewai import Agent, Process, Crew, Task
